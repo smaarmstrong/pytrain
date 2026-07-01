@@ -1,0 +1,9 @@
+{
+  "title": "FastAPI: path, query and body",
+  "domain": "web",
+  "objective": "FastAPI: path/query/body params with pydantic models",
+  "difficulty": 2,
+  "est_min": 25,
+  "deps": ["fastapi", "httpx"],
+  "tags": []
+}
