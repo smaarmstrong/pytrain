@@ -1,0 +1,9 @@
+{
+  "title": "K smallest, lazily",
+  "domain": "dsa",
+  "objective": "heaps: heapq k-smallest / merge k sorted / priority queue with tie-breaks",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": []
+}

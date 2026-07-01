@@ -1,0 +1,369 @@
+#!/usr/bin/env python3
+"""
+pytrain — a console trainer for the whole Python language and ecosystem.
+
+Each task gives you a real, well-specified piece of code to write; the grader
+then runs a pytest suite against *your* file in an isolated venv, asserting
+behaviour (never style) the way a code review or CI pipeline would.
+
+Usage:
+    pytrain list [domain]         # all tasks, grouped by domain, with your status
+    pytrain start  <id>           # create your workspace for a task and show the spec
+    pytrain check  <id>           # grade your solution (pass/fail per test)
+    pytrain solution <id>         # reveal the reference solution
+    pytrain reset  <id>           # restore the starter scaffold (your file is backed up)
+    pytrain status                # your XP, streak, and per-domain completion
+
+<id> can be the full "domain/nn-name" or just the unique trailing name.
+
+Your working files live in workspace/<domain>/<nn-name>/ inside this clone
+(gitignored). Progress is stored in ~/.local/state/pytrain/progress.json.
+
+Tasks that need third-party packages (fastapi, pandas, ...) declare them in
+meta.json; check provisions a cached venv per dependency set (uv if available,
+else venv+pip) so the first check installs once and later checks are instant.
+Runs on any Python >= 3.11 — the runner itself is stdlib only.
+"""
+import json
+import hashlib
+import os
+import re
+import shutil
+import subprocess
+import sys
+from datetime import date, timedelta
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+TASKS = REPO / "tasks"
+WORKSPACE = REPO / "workspace"
+STATE_DIR = Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state")) / "pytrain"
+STATE = STATE_DIR / "progress.json"
+VENVS = STATE_DIR / "venvs"
+MIN_PY = (3, 11)
+
+# ---- colours ---------------------------------------------------------------
+_tty = sys.stdout.isatty()
+def c(code, s):
+    return f"\033[{code}m{s}\033[0m" if _tty else s
+GRN = lambda s: c("32", s)
+RED = lambda s: c("31", s)
+YEL = lambda s: c("33", s)
+BLU = lambda s: c("34", s)
+MAG = lambda s: c("35", s)
+DIM = lambda s: c("2", s)
+BLD = lambda s: c("1", s)
+
+XP_BY_DIFFICULTY = {1: 10, 2: 15, 3: 25, 4: 40, 5: 60}
+
+# ---- state -----------------------------------------------------------------
+def load_state():
+    try:
+        return json.loads(STATE.read_text())
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {"tasks": {}, "xp": 0, "streak": {"count": 0, "last": ""}}
+
+def save_state(st):
+    STATE.parent.mkdir(parents=True, exist_ok=True)
+    STATE.write_text(json.dumps(st, indent=2))
+
+def bump_streak(st):
+    today = date.today()
+    s = st["streak"]
+    if s["last"] == today.isoformat():
+        return
+    if s.get("last") and date.fromisoformat(s["last"]) == today - timedelta(days=1):
+        s["count"] += 1
+    else:
+        s["count"] = 1
+    s["last"] = today.isoformat()
+
+# ---- task discovery --------------------------------------------------------
+def discover():
+    """Return {task_id: meta_dict} for every task, in sorted order."""
+    tasks = {}
+    if not TASKS.is_dir():
+        return tasks
+    for meta_path in sorted(TASKS.glob("*/*/meta.json")):
+        d = meta_path.parent
+        tid = f"{d.parent.name}/{d.name}"
+        try:
+            meta = json.loads(meta_path.read_text())
+        except json.JSONDecodeError as e:
+            print(YEL(f"warning: bad meta.json in {tid}: {e}"), file=sys.stderr)
+            continue
+        meta["_dir"] = d
+        tasks[tid] = meta
+    return tasks
+
+def resolve(tasks, ident):
+    """Accept 'domain/nn-name' or a unique trailing 'nn-name' / 'name'."""
+    if ident in tasks:
+        return ident
+    hits = [t for t in tasks if t.split("/", 1)[1] == ident]
+    if not hits:
+        hits = [t for t in tasks if re.sub(r"^\d+-", "", t.split("/", 1)[1]) == ident]
+    if len(hits) == 1:
+        return hits[0]
+    if len(hits) > 1:
+        die(f"'{ident}' is ambiguous: {', '.join(hits)}")
+    die(f"no task called '{ident}' (try: pytrain list)")
+
+def die(msg):
+    print(RED(f"error: {msg}"), file=sys.stderr)
+    sys.exit(1)
+
+def task_python_ok(meta):
+    """Check this interpreter meets the task's optional 'python' minimum."""
+    want = meta.get("python")
+    if not want:
+        return True
+    try:
+        parts = tuple(int(x) for x in str(want).split("."))
+    except ValueError:
+        return True
+    return sys.version_info >= parts
+
+# ---- workspace -------------------------------------------------------------
+def ws_dir(tid):
+    return WORKSPACE / tid
+
+def populate_workspace(tid, meta, force=False):
+    """Copy the starter scaffold into workspace/<tid>. Returns the dir."""
+    src = meta["_dir"]
+    dst = ws_dir(tid)
+    existing = dst / "solution.py"
+    if existing.exists() and not force:
+        return dst
+    if force and dst.exists():
+        backup = dst.with_name(dst.name + ".bak")
+        shutil.rmtree(backup, ignore_errors=True)
+        shutil.copytree(dst, backup)
+        shutil.rmtree(dst)
+        print(DIM(f"previous work backed up to {backup.relative_to(REPO)}"))
+    dst.mkdir(parents=True, exist_ok=True)
+    starter_dir = src / "starter"
+    if starter_dir.is_dir():
+        shutil.copytree(starter_dir, dst, dirs_exist_ok=True)
+    elif (src / "starter.py").exists():
+        shutil.copy(src / "starter.py", dst / "solution.py")
+    else:
+        (dst / "solution.py").write_text(
+            '"""Write your solution here — see the task prompt."""\n'
+        )
+    return dst
+
+# ---- venv provisioning -----------------------------------------------------
+def venv_for(deps):
+    """Return (python_exe, note) for a cached venv containing pytest + deps.
+
+    note is None on success, or a human-readable reason the venv is unavailable
+    (offline, install failure) — the caller reports the task as SKIPPED.
+    """
+    deps = sorted(set(deps) | {"pytest"})
+    key = hashlib.sha256((sys.executable + "\n" + "\n".join(deps)).encode()).hexdigest()[:16]
+    vdir = VENVS / key
+    exe = vdir / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
+    stamp = vdir / "ok.stamp"
+    if stamp.exists() and exe.exists():
+        return str(exe), None
+    shutil.rmtree(vdir, ignore_errors=True)
+    VENVS.mkdir(parents=True, exist_ok=True)
+    uv = shutil.which("uv")
+    print(DIM(f"provisioning venv for [{', '.join(deps)}] (first run only)..."))
+    try:
+        if uv:
+            run([uv, "venv", "--python", sys.executable, str(vdir)])
+            run([uv, "pip", "install", "--python", str(exe), *deps])
+        else:
+            run([sys.executable, "-m", "venv", str(vdir)])
+            run([str(exe), "-m", "pip", "install", "--quiet", *deps])
+    except subprocess.CalledProcessError as e:
+        shutil.rmtree(vdir, ignore_errors=True)
+        tail = (e.output or "").strip().splitlines()[-3:]
+        return None, "could not install " + ", ".join(deps) + \
+            (" — are you offline?" if tail else "") + ("\n  " + "\n  ".join(tail) if tail else "")
+    stamp.write_text("\n".join(deps))
+    return str(exe), None
+
+def run(cmd):
+    return subprocess.run(cmd, check=True, capture_output=True, text=True,
+                          stdin=subprocess.DEVNULL).stdout
+
+# ---- grading ---------------------------------------------------------------
+def grade(tid, meta):
+    """Run the task's pytest grader against the learner's workspace.
+
+    Returns (passed: bool, skipped_note: str|None, output: str).
+    """
+    ws = ws_dir(tid)
+    if not (ws / "solution.py").exists() and not any(ws.glob("*.py")):
+        return False, None, f"no workspace yet — run: pytrain start {tid}"
+    exe, note = venv_for(meta.get("deps", []))
+    if note:
+        return False, note, ""
+    env = os.environ.copy()
+    env["PYTRAIN_WS"] = str(ws)
+    env["PYTHONPATH"] = str(REPO / "grader")
+    env.pop("PYTEST_ADDOPTS", None)
+    grader = meta["_dir"] / "test_grade.py"
+    proc = subprocess.run(
+        [exe, "-m", "pytest", str(grader), "-q", "--no-header",
+         "-p", "no:cacheprovider", "--rootdir", str(ws), "-x", "--tb=short"],
+        capture_output=True, text=True, env=env, cwd=str(ws),
+        stdin=subprocess.DEVNULL, timeout=meta.get("timeout", 120),
+    )
+    return proc.returncode == 0, None, proc.stdout + proc.stderr
+
+# ---- commands ----------------------------------------------------------------
+def cmd_list(args):
+    tasks = discover()
+    st = load_state()
+    only = args[0] if args else None
+    domains = {}
+    for tid, meta in tasks.items():
+        domains.setdefault(tid.split("/")[0], []).append((tid, meta))
+    if only and only not in domains:
+        die(f"no domain '{only}' (have: {', '.join(sorted(domains))})")
+    for dom in sorted(domains):
+        if only and dom != only:
+            continue
+        rows = domains[dom]
+        done = sum(1 for tid, _ in rows if st["tasks"].get(tid, {}).get("passed"))
+        print(f"\n{BLD(BLU(dom))} {DIM(f'({done}/{len(rows)})')}")
+        for tid, meta in rows:
+            rec = st["tasks"].get(tid, {})
+            mark = GRN("✓") if rec.get("passed") else (YEL("…") if rec.get("attempts") else DIM("·"))
+            stars = MAG("★" * meta.get("difficulty", 1))
+            adv = YEL(" [advanced]") if "advanced" in meta.get("tags", []) else ""
+            deps = DIM(f" ({', '.join(meta['deps'])})") if meta.get("deps") else ""
+            print(f"  {mark} {tid.split('/', 1)[1]:<34} {stars:<18} "
+                  f"{DIM(str(meta.get('est_min', '?')) + 'm')}  {meta['title']}{adv}{deps}")
+    if not only:
+        total = len(tasks)
+        done = sum(1 for t in tasks if st["tasks"].get(t, {}).get("passed"))
+        print(f"\n{BLD(f'{done}/{total} tasks complete')} — "
+              f"{st['xp']} XP, {st['streak']['count']}-day streak")
+
+def cmd_start(args):
+    if not args:
+        die("usage: pytrain start <id>")
+    tasks = discover()
+    tid = resolve(tasks, args[0])
+    meta = tasks[tid]
+    if not task_python_ok(meta):
+        print(YEL(f"note: this task wants Python >= {meta['python']}; "
+                  f"you have {sys.version.split()[0]}. It may not be gradable here."))
+    ws = populate_workspace(tid, meta)
+    print(BLD(f"\n=== {meta['title']} ") + DIM(f"[{tid}]"))
+    print(DIM(f"difficulty {'★' * meta.get('difficulty', 1)} · ~{meta.get('est_min', '?')} min"
+              + (f" · needs: {', '.join(meta['deps'])}" if meta.get("deps") else "")))
+    print()
+    print((meta["_dir"] / "prompt.md").read_text())
+    print(BLD("Your file(s): ") + str(ws.relative_to(REPO)) + "/")
+    print(DIM(f"When ready:    pytrain check {tid}"))
+
+def cmd_check(args):
+    if not args:
+        die("usage: pytrain check <id>")
+    tasks = discover()
+    tid = resolve(tasks, args[0])
+    meta = tasks[tid]
+    if not task_python_ok(meta):
+        print(YEL(f"SKIP: needs Python >= {meta['python']} (you have {sys.version.split()[0]})"))
+        return
+    passed, skip_note, output = grade(tid, meta)
+    st = load_state()
+    rec = st["tasks"].setdefault(tid, {"passed": False, "attempts": 0})
+    if skip_note:
+        print(YEL(f"SKIP: {skip_note}"))
+        return
+    rec["attempts"] += 1
+    if passed:
+        print(GRN(BLD("PASS")) + f" — {meta['title']}")
+        if not rec["passed"]:
+            xp = XP_BY_DIFFICULTY.get(meta.get("difficulty", 1), 10)
+            st["xp"] += xp
+            bump_streak(st)
+            print(GRN(f"+{xp} XP") + DIM(f"  (total {st['xp']}, streak {st['streak']['count']})"))
+        rec["passed"] = True
+    else:
+        print(RED(BLD("FAIL")) + f" — {meta['title']}\n")
+        print(trim_pytest(output))
+        print(DIM(f"\nHint: pytrain solution {tid} shows a reference answer."))
+    save_state(st)
+    if not passed:
+        sys.exit(1)
+
+def trim_pytest(out):
+    """Show the useful part of pytest output, not the whole wall."""
+    lines = out.splitlines()
+    keep, capture = [], False
+    for ln in lines:
+        if ln.startswith("=") and ("FAILURES" in ln or "ERRORS" in ln):
+            capture = True
+        if capture or ln.startswith(("FAILED", "ERROR", "PASSED")) or " passed" in ln or " failed" in ln or " error" in ln:
+            keep.append(ln)
+    text = "\n".join(keep) or out
+    return text if len(text) < 4000 else text[:4000] + "\n... (truncated)"
+
+def cmd_solution(args):
+    if not args:
+        die("usage: pytrain solution <id>")
+    tasks = discover()
+    tid = resolve(tasks, args[0])
+    meta = tasks[tid]
+    sol_dir = meta["_dir"] / "solution"
+    print(BLD(f"Reference solution — {meta['title']}\n"))
+    if sol_dir.is_dir():
+        for f in sorted(sol_dir.rglob("*.py")):
+            print(BLU(f"--- {f.relative_to(sol_dir)} ---"))
+            print(f.read_text())
+    else:
+        print((meta["_dir"] / "solution.py").read_text())
+
+def cmd_reset(args):
+    if not args:
+        die("usage: pytrain reset <id>")
+    tasks = discover()
+    tid = resolve(tasks, args[0])
+    populate_workspace(tid, tasks[tid], force=True)
+    print(f"workspace for {tid} reset to the starter scaffold")
+
+def cmd_status(_args):
+    tasks = discover()
+    st = load_state()
+    print(BLD(f"\nXP: {st['xp']}   streak: {st['streak']['count']} day(s)"
+              + (DIM(f"  (last active {st['streak']['last']})") if st['streak']['last'] else "")))
+    domains = {}
+    for tid in tasks:
+        domains.setdefault(tid.split("/")[0], []).append(tid)
+    print()
+    for dom in sorted(domains):
+        ids = domains[dom]
+        done = sum(1 for t in ids if st["tasks"].get(t, {}).get("passed"))
+        width = 24
+        filled = round(width * done / len(ids)) if ids else 0
+        bar = GRN("█" * filled) + DIM("░" * (width - filled))
+        print(f"  {dom:<14} {bar} {done}/{len(ids)}")
+    print()
+
+COMMANDS = {
+    "list": cmd_list, "start": cmd_start, "check": cmd_check,
+    "solution": cmd_solution, "reset": cmd_reset, "status": cmd_status,
+}
+
+def main():
+    if sys.version_info < MIN_PY:
+        die(f"pytrain needs Python >= {'.'.join(map(str, MIN_PY))}")
+    args = sys.argv[1:]
+    if not args or args[0] in ("-h", "--help", "help"):
+        print(__doc__.strip())
+        return
+    fn = COMMANDS.get(args[0])
+    if not fn:
+        die(f"unknown command '{args[0]}' (try: pytrain help)")
+    fn(args[1:])
+
+if __name__ == "__main__":
+    main()
