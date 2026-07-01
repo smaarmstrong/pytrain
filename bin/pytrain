@@ -167,24 +167,42 @@ def venv_for(deps):
     stamp = vdir / "ok.stamp"
     if stamp.exists() and exe.exists():
         return str(exe), None
-    shutil.rmtree(vdir, ignore_errors=True)
     VENVS.mkdir(parents=True, exist_ok=True)
-    uv = shutil.which("uv")
-    print(DIM(f"provisioning venv for [{', '.join(deps)}] (first run only)..."))
+    # Several pytrain/selftest processes may want the same dep-set at once;
+    # first one in builds, the rest wait on the stamp.
+    lock = vdir.with_suffix(".lock")
     try:
-        if uv:
-            run([uv, "venv", "--python", sys.executable, str(vdir)])
-            run([uv, "pip", "install", "--python", str(exe), *deps])
-        else:
-            run([sys.executable, "-m", "venv", str(vdir)])
-            run([str(exe), "-m", "pip", "install", "--quiet", *deps])
-    except subprocess.CalledProcessError as e:
+        fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        os.close(fd)
+    except FileExistsError:
+        import time
+        for _ in range(600):
+            if stamp.exists() and exe.exists():
+                return str(exe), None
+            if not lock.exists():
+                break
+            time.sleep(1)
+        return venv_for(deps)
+    try:
         shutil.rmtree(vdir, ignore_errors=True)
-        tail = (e.output or "").strip().splitlines()[-3:]
-        return None, "could not install " + ", ".join(deps) + \
-            (" — are you offline?" if tail else "") + ("\n  " + "\n  ".join(tail) if tail else "")
-    stamp.write_text("\n".join(deps))
-    return str(exe), None
+        uv = shutil.which("uv")
+        print(DIM(f"provisioning venv for [{', '.join(deps)}] (first run only)..."))
+        try:
+            if uv:
+                run([uv, "venv", "--python", sys.executable, str(vdir)])
+                run([uv, "pip", "install", "--python", str(exe), *deps])
+            else:
+                run([sys.executable, "-m", "venv", str(vdir)])
+                run([str(exe), "-m", "pip", "install", "--quiet", *deps])
+        except subprocess.CalledProcessError as e:
+            shutil.rmtree(vdir, ignore_errors=True)
+            tail = ((e.stderr or "") + (e.stdout or "")).strip().splitlines()[-3:]
+            return None, "could not install " + ", ".join(deps) + \
+                ("\n  " + "\n  ".join(tail) if tail else " — are you offline?")
+        stamp.write_text("\n".join(deps))
+        return str(exe), None
+    finally:
+        lock.unlink(missing_ok=True)
 
 def run(cmd):
     return subprocess.run(cmd, check=True, capture_output=True, text=True,
