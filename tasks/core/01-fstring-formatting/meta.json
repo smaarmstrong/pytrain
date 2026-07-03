@@ -1,0 +1,9 @@
+{
+  "title": "Receipt strings",
+  "domain": "core",
+  "objective": "f-strings incl. format specs, `=` debugging, nested quotes",
+  "difficulty": 1,
+  "est_min": 10,
+  "deps": [],
+  "tags": []
+}

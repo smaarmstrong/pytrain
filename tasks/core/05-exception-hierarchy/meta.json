@@ -1,0 +1,9 @@
+{
+  "title": "Config errors, chained",
+  "domain": "core",
+  "objective": "exceptions: custom hierarchies, `raise ... from`, `else`/`finally`",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

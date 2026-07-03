@@ -1,0 +1,9 @@
+{
+  "title": "Chunks and a running average",
+  "domain": "core",
+  "objective": "generator functions: `yield`, generator state, `send`",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": [],
+  "tags": []
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Patch it back: @contextmanager",
+  "domain": "core",
+  "objective": "context managers: `contextlib.contextmanager`",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

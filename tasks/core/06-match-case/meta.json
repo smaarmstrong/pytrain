@@ -1,0 +1,10 @@
+{
+  "title": "Command dispatcher",
+  "domain": "core",
+  "objective": "`match`/`case` structural pattern matching",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": [],
+  "tags": [],
+  "python": "3.10"
+}

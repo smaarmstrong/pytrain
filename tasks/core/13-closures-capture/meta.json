@@ -1,0 +1,9 @@
+{
+  "title": "Counters and captured loops",
+  "domain": "core",
+  "objective": "closures and variable capture (`nonlocal`, late binding pitfall)",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

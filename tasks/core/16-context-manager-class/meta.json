@@ -1,0 +1,9 @@
+{
+  "title": "Rollback: a transactional context manager",
+  "domain": "core",
+  "objective": "context managers: class-based (`__enter__`/`__exit__`) incl. exception handling",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": [],
+  "tags": []
+}
