@@ -1,0 +1,9 @@
+{
+  "title": "Palindromes & run-length encoding",
+  "domain": "dsa",
+  "objective": "string algorithms: palindromes, run-length encoding, str manipulation",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

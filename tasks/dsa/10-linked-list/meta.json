@@ -1,0 +1,9 @@
+{
+  "title": "Singly linked list: build, reverse, cycle",
+  "domain": "dsa",
+  "objective": "singly linked list: build, reverse, detect cycle",
+  "difficulty": 2,
+  "est_min": 25,
+  "deps": [],
+  "tags": []
+}

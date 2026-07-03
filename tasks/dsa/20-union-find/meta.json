@@ -1,0 +1,9 @@
+{
+  "title": "Union-find: disjoint sets",
+  "domain": "dsa",
+  "objective": "trie or union-find (pick one)",
+  "difficulty": 4,
+  "est_min": 30,
+  "deps": [],
+  "tags": ["advanced"]
+}

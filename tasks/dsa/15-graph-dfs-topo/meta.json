@@ -1,0 +1,9 @@
+{
+  "title": "Graphs: DFS, cycles, topological sort",
+  "domain": "dsa",
+  "objective": "graphs: DFS, cycle detection, topological sort",
+  "difficulty": 3,
+  "est_min": 35,
+  "deps": [],
+  "tags": []
+}

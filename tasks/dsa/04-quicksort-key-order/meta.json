@@ -1,0 +1,9 @@
+{
+  "title": "Quicksort & custom key ordering",
+  "domain": "dsa",
+  "objective": "sorting: quicksort or heapsort; `key=` based custom ordering",
+  "difficulty": 2,
+  "est_min": 25,
+  "deps": [],
+  "tags": []
+}

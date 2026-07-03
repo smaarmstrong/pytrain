@@ -1,0 +1,9 @@
+{
+  "title": "Dijkstra with heapq",
+  "domain": "dsa",
+  "objective": "graphs: Dijkstra with heapq",
+  "difficulty": 4,
+  "est_min": 35,
+  "deps": [],
+  "tags": ["advanced"]
+}

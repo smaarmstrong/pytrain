@@ -1,0 +1,9 @@
+{
+  "title": "Binary search three ways",
+  "domain": "dsa",
+  "objective": "binary search (index + bisect variants, rotated array [advanced])",
+  "difficulty": 3,
+  "est_min": 30,
+  "deps": [],
+  "tags": []
+}

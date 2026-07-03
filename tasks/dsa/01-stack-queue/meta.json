@@ -1,0 +1,9 @@
+{
+  "title": "Stack & queue from scratch",
+  "domain": "dsa",
+  "objective": "stack & queue from first principles (list / deque)",
+  "difficulty": 1,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}
