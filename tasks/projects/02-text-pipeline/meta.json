@@ -1,0 +1,10 @@
+{
+  "title": "Project: hashtag report pipeline",
+  "domain": "projects",
+  "objective": "text pipeline: read files, regex-extract, aggregate with collections, report",
+  "difficulty": 3,
+  "est_min": 40,
+  "deps": [],
+  "tags": [],
+  "timeout": 180
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Project: wordstats — a packaged library",
+  "domain": "projects",
+  "objective": "library: package a reusable module with pyproject, entry point and tests",
+  "difficulty": 5,
+  "est_min": 75,
+  "deps": ["pip", "build", "setuptools"],
+  "tags": ["advanced"],
+  "timeout": 300
+}

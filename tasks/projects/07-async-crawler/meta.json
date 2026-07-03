@@ -1,0 +1,10 @@
+{
+  "title": "Project: async site crawler",
+  "domain": "projects",
+  "objective": "async scraper/worker: asyncio + httpx against a provided local mock (no network)",
+  "difficulty": 4,
+  "est_min": 60,
+  "deps": ["httpx"],
+  "tags": ["advanced"],
+  "timeout": 240
+}

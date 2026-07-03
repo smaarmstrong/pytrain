@@ -1,0 +1,10 @@
+{
+  "title": "Project: notes REST API",
+  "domain": "projects",
+  "objective": "REST API: FastAPI CRUD + validation + auth dependency, graded via httpx client",
+  "difficulty": 4,
+  "est_min": 60,
+  "deps": ["fastapi", "httpx"],
+  "tags": [],
+  "timeout": 240
+}

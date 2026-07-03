@@ -1,0 +1,6 @@
+127.0.0.1 - alice [01/Mar/2026:10:15:32 +0000] "GET /index.html HTTP/1.1" 200 5321
+127.0.0.1 - - [01/Mar/2026:10:15:40 +0000] "GET /index.html HTTP/1.1" 200 5321
+10.0.0.7 - bob [01/Mar/2026:10:16:02 +0000] "POST /login HTTP/1.1" 302 -
+10.0.0.7 - bob [01/Mar/2026:10:16:03 +0000] "GET /dashboard HTTP/1.1" 200 8842
+kernel panic: not a log line
+192.168.1.4 - - [01/Mar/2026:10:17:11 +0000] "GET /favicon.ico HTTP/1.1" 404 153

@@ -1,0 +1,10 @@
+{
+  "title": "Project: todo CLI",
+  "domain": "projects",
+  "objective": "CLI tool: argparse + pathlib + json — a todo/notes manager with subcommands",
+  "difficulty": 3,
+  "est_min": 45,
+  "deps": [],
+  "tags": [],
+  "timeout": 180
+}

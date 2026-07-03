@@ -1,0 +1,2 @@
+Sprint planning #Python #infra
+Deferred the upgrade again #python
