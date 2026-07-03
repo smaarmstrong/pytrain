@@ -1,0 +1,9 @@
+{
+  "title": "NewType and type aliases",
+  "domain": "typing",
+  "objective": "NewType and type aliases (`type X = ...` on 3.12+ / TypeAlias)",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": []
+}
