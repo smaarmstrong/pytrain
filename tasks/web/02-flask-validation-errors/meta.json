@@ -1,0 +1,9 @@
+{
+  "title": "Flask: validate and abort",
+  "domain": "web",
+  "objective": "Flask: request validation + error handlers (abort, custom 404/400)",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": ["flask"],
+  "tags": []
+}

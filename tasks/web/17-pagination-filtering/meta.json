@@ -1,0 +1,9 @@
+{
+  "title": "Pagination and filtering semantics",
+  "domain": "web",
+  "objective": "pagination + filtering endpoint semantics",
+  "difficulty": 3,
+  "est_min": 30,
+  "deps": ["fastapi", "httpx"],
+  "tags": []
+}

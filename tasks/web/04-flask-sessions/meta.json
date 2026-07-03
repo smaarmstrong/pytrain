@@ -1,0 +1,9 @@
+{
+  "title": "Flask: session login",
+  "domain": "web",
+  "objective": "Flask: sessions/cookies or before_request auth hook",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["flask"],
+  "tags": ["advanced"]
+}

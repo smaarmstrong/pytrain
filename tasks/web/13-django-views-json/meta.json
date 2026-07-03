@@ -1,0 +1,9 @@
+{
+  "title": "Django: views, URLconf and JSON",
+  "domain": "web",
+  "objective": "Django: views + URLconf + JSON responses (test client)",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["django"],
+  "tags": []
+}

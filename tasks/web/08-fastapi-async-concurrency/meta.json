@@ -1,0 +1,10 @@
+{
+  "title": "FastAPI: async endpoints, concurrent work",
+  "domain": "web",
+  "objective": "FastAPI: async endpoints doing concurrent work",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["fastapi", "httpx"],
+  "tags": ["advanced"],
+  "timeout": 180
+}

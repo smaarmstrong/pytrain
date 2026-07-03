@@ -1,0 +1,9 @@
+{
+  "title": "Flask: routes, params and JSON",
+  "domain": "web",
+  "objective": "Flask: routes, methods, URL params, query strings, JSON in/out",
+  "difficulty": 1,
+  "est_min": 15,
+  "deps": ["flask"],
+  "tags": []
+}

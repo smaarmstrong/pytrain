@@ -1,0 +1,9 @@
+{
+  "title": "DRF: serializer + ModelViewSet CRUD",
+  "domain": "web",
+  "objective": "DRF: serializers + a ModelViewSet CRUD (APIClient)",
+  "difficulty": 4,
+  "est_min": 35,
+  "deps": ["django", "djangorestframework"],
+  "tags": ["advanced"]
+}

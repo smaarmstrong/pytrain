@@ -1,0 +1,9 @@
+{
+  "title": "Django: form validation",
+  "domain": "web",
+  "objective": "Django: forms or model validation",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["django"],
+  "tags": ["advanced"]
+}
