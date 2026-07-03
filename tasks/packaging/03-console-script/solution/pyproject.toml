@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wordcli"
+version = "0.1.0"
+description = "Count words on the command line"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+wordcli = "wordcli.cli:main"

@@ -1,0 +1,9 @@
+{
+  "title": "Pin dependencies to a scenario",
+  "domain": "packaging",
+  "objective": "dependency pinning: write constraints satisfying given scenario (resolver-checked)",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": ["packaging"],
+  "tags": []
+}

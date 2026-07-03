@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quotes"
+version = "0.1.0"
+description = "A tiny quote-of-the-day library"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools.package-data]
+quotes = ["*.txt"]

@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "greet"
+version = "0.1.0"
+description = "Tiny greeting helpers"
+requires-python = ">=3.11"
+dependencies = [
+    "colorama>=0.4",
+    "packaging",
+]

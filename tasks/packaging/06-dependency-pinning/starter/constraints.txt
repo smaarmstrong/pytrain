@@ -1,0 +1,2 @@
+# Write one PEP 508 requirement per line, e.g.:
+#   somepkg>=1.2,<2

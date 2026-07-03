@@ -1,0 +1,10 @@
+{
+  "title": "A [dev] extra for contributors",
+  "domain": "packaging",
+  "objective": "editable install & extras ([dev] extra with pytest)",
+  "difficulty": 3,
+  "est_min": 15,
+  "deps": ["build", "packaging", "setuptools", "wheel"],
+  "tags": ["advanced"],
+  "timeout": 300
+}
