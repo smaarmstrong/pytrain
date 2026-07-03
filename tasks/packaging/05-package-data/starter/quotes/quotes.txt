@@ -1,0 +1,5 @@
+Simple is better than complex.
+Readability counts.
+Errors should never pass silently.
+Now is better than never.
+Namespaces are one honking great idea.

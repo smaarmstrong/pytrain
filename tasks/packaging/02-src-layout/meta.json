@@ -1,0 +1,10 @@
+{
+  "title": "Restructure into a src/ layout",
+  "domain": "packaging",
+  "objective": "src layout: restructure a flat module into src/ package (import works installed)",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": ["pip", "setuptools", "wheel"],
+  "tags": [],
+  "timeout": 300
+}

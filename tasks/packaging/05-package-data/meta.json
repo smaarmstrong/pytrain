@@ -1,0 +1,10 @@
+{
+  "title": "Ship a data file inside the wheel",
+  "domain": "packaging",
+  "objective": "package data: include non-Python files and read them via importlib.resources",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["build", "pip", "setuptools", "wheel"],
+  "tags": [],
+  "timeout": 300
+}

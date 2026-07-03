@@ -1,0 +1,9 @@
+[project]
+name = "tinyproj"
+version = "0.1.0"
+description = "A tiny uv-managed application"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.uv]
+package = false

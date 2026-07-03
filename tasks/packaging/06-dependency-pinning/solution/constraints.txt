@@ -1,0 +1,4 @@
+# spanner: feature added in 1.5, and gearbox 1.5+ needs spanner < 2
+spanner>=1.5,<2
+# gearbox: app needs >= 1.5, and 2.0 is critically buggy
+gearbox>=1.5,<2

@@ -1,0 +1,10 @@
+{
+  "title": "Single-source the version",
+  "domain": "packaging",
+  "objective": "version handling: __version__ single-sourced",
+  "difficulty": 4,
+  "est_min": 25,
+  "deps": ["build", "setuptools", "wheel"],
+  "tags": ["advanced"],
+  "timeout": 300
+}

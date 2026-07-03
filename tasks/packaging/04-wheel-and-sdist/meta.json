@@ -1,0 +1,10 @@
+{
+  "title": "Build a wheel and an sdist",
+  "domain": "packaging",
+  "objective": "build a wheel + sdist with `python -m build` / `uv build`; assert contents",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["build", "setuptools", "wheel"],
+  "tags": [],
+  "timeout": 300
+}

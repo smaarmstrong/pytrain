@@ -1,0 +1,10 @@
+{
+  "title": "Wire up a console script",
+  "domain": "packaging",
+  "objective": "entry points: console_scripts that installs a working CLI",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": ["pip", "setuptools", "wheel"],
+  "tags": [],
+  "timeout": 300
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Pass twine's publish checks",
+  "domain": "packaging",
+  "objective": "publishable checks: twine check / metadata validation",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": ["build", "setuptools", "twine", "wheel"],
+  "tags": ["advanced"],
+  "timeout": 300
+}

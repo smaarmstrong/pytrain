@@ -1,0 +1,8 @@
+[project]
+name = "tinyproj"
+version = "0.1.0"
+description = "A tiny uv-managed application"
+dependencies = []
+
+# TODO: uv needs requires-python before it will lock this project
+# TODO: mark the project as a virtual (non-packaged) uv project
