@@ -1,0 +1,10 @@
+{
+  "title": "Approximately equal: floats and collections",
+  "domain": "testing",
+  "objective": "approx & floats, comparing collections",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": [],
+  "timeout": 240
+}

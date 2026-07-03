@@ -1,0 +1,10 @@
+{
+  "title": "TDD kata: the string calculator",
+  "domain": "testing",
+  "objective": "TDD kata: implement code to make a provided failing suite pass",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": [],
+  "tags": [],
+  "timeout": 240
+}

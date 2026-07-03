@@ -1,0 +1,10 @@
+{
+  "title": "tmp_path and monkeypatch: config loader",
+  "domain": "testing",
+  "objective": "tmp_path / monkeypatch built-in fixtures",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": [],
+  "timeout": 240
+}

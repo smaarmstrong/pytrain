@@ -1,0 +1,10 @@
+{
+  "title": "mypy as a quality gate",
+  "domain": "testing",
+  "objective": "mypy as quality gate: type a module until mypy passes strict-ish flags",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": ["mypy"],
+  "tags": [],
+  "timeout": 180
+}
