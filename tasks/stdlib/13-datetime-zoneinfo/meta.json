@@ -1,0 +1,9 @@
+{
+  "title": "Clocks, zones and one tricky flight",
+  "domain": "stdlib",
+  "objective": "datetime & zoneinfo: parsing, arithmetic, tz conversion",
+  "difficulty": 3,
+  "est_min": 22,
+  "deps": [],
+  "tags": []
+}

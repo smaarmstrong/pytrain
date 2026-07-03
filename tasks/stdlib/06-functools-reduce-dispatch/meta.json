@@ -1,0 +1,9 @@
+{
+  "title": "Fold it, dispatch it",
+  "domain": "stdlib",
+  "objective": "functools: reduce, singledispatch",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": ["advanced"]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Stream surgery with itertools",
+  "domain": "stdlib",
+  "objective": "itertools: islice, chain, groupby, pairwise",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": [],
+  "python": "3.10"
+}

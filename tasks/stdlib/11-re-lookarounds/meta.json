@@ -1,0 +1,9 @@
+{
+  "title": "Lazy quantifiers and lookarounds",
+  "domain": "stdlib",
+  "objective": "re: greedy vs lazy, lookarounds",
+  "difficulty": 4,
+  "est_min": 25,
+  "deps": [],
+  "tags": ["advanced"]
+}

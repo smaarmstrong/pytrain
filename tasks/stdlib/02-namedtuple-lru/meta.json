@@ -1,0 +1,9 @@
+{
+  "title": "Named tuples and an LRU sketch",
+  "domain": "stdlib",
+  "objective": "collections: namedtuple / OrderedDict move_to_end LRU sketch",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

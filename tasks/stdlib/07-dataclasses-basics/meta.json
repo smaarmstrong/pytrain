@@ -1,0 +1,9 @@
+{
+  "title": "Records without boilerplate",
+  "domain": "stdlib",
+  "objective": "dataclasses: basics, defaults, field(default_factory), frozen/eq/order",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": []
+}

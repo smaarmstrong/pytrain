@@ -1,0 +1,9 @@
+{
+  "title": "Walking trees with pathlib",
+  "domain": "stdlib",
+  "objective": "pathlib: traversal, globbing, reading/writing, path arithmetic",
+  "difficulty": 2,
+  "est_min": 18,
+  "deps": [],
+  "tags": []
+}

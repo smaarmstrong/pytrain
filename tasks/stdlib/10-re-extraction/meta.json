@@ -1,0 +1,9 @@
+{
+  "title": "Pulling structure out of text",
+  "domain": "stdlib",
+  "objective": "re: groups, named groups, findall/finditer, sub with function",
+  "difficulty": 2,
+  "est_min": 18,
+  "deps": [],
+  "tags": []
+}

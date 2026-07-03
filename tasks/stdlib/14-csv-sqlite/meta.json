@@ -1,0 +1,9 @@
+{
+  "title": "CSV in, SQL out",
+  "domain": "stdlib",
+  "objective": "csv + sqlite3: load a CSV into SQLite and query it",
+  "difficulty": 3,
+  "est_min": 22,
+  "deps": [],
+  "tags": []
+}

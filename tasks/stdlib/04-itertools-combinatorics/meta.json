@@ -1,0 +1,9 @@
+{
+  "title": "Combinatorics without loops-of-loops",
+  "domain": "stdlib",
+  "objective": "itertools: product, permutations, combinations, accumulate",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": ["advanced"]
+}

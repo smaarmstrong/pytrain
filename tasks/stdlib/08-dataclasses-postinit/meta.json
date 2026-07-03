@@ -1,0 +1,9 @@
+{
+  "title": "Derived fields and vanishing init args",
+  "domain": "stdlib",
+  "objective": "dataclasses: `__post_init__`, InitVar",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": ["advanced"]
+}
