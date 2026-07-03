@@ -1,0 +1,9 @@
+{
+  "title": "Loggers that grow on trees",
+  "domain": "stdlib",
+  "objective": "logging: levels, handlers, formatters, getLogger hierarchy",
+  "difficulty": 3,
+  "est_min": 22,
+  "deps": [],
+  "tags": []
+}

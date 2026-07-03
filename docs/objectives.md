@@ -39,7 +39,7 @@ per-task third-party deps declared in `meta.json` `deps`.
 - [ ] binary search (index + bisect variants, rotated array [advanced])
 - [ ] sorting: implement merge sort; stability observable
 - [ ] sorting: quicksort or heapsort; `key=` based custom ordering
-- [ ] heaps: `heapq` k-smallest / merge k sorted / priority queue with tie-breaks
+- [ ] heaps: heapq k-smallest / merge k sorted / priority queue with tie-breaks
 - [ ] hash maps: frequency counting, two-sum-style lookups, anagram grouping
 - [ ] sets: dedupe, intersection problems, sliding-window uniqueness
 - [ ] binary tree: build, traversals (DFS pre/in/post, BFS by level)

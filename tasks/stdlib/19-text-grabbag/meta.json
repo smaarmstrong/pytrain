@@ -1,0 +1,9 @@
+{
+  "title": "Wrap, dedent, template, token",
+  "domain": "stdlib",
+  "objective": "textwrap/string/secrets grab-bag",
+  "difficulty": 2,
+  "est_min": 18,
+  "deps": [],
+  "tags": ["advanced"]
+}

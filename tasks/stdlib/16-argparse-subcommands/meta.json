@@ -1,0 +1,9 @@
+{
+  "title": "A tiny calculator CLI",
+  "domain": "stdlib",
+  "objective": "argparse: subcommands, types, defaults, error exit codes",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": [],
+  "tags": []
+}

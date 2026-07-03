@@ -1,0 +1,9 @@
+{
+  "title": "Env vars, tree copies, disposable dirs",
+  "domain": "stdlib",
+  "objective": "os/shutil/tempfile: env vars, dir trees, safe temp usage",
+  "difficulty": 2,
+  "est_min": 18,
+  "deps": [],
+  "tags": []
+}

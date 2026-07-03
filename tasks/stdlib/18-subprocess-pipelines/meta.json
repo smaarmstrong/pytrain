@@ -1,0 +1,9 @@
+{
+  "title": "Child processes, captured and chained",
+  "domain": "stdlib",
+  "objective": "subprocess: run, capture, check, pipelines",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

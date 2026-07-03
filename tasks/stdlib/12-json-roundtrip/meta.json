@@ -1,0 +1,9 @@
+{
+  "title": "JSON beyond the basic types",
+  "domain": "stdlib",
+  "objective": "json: load/dump, custom encoder/object_hook, round-tripping",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

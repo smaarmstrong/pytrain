@@ -1,0 +1,9 @@
+{
+  "title": "Counting, grouping, tailing",
+  "domain": "stdlib",
+  "objective": "collections: Counter, defaultdict, deque",
+  "difficulty": 1,
+  "est_min": 12,
+  "deps": [],
+  "tags": []
+}
