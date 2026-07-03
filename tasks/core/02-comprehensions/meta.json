@@ -1,0 +1,9 @@
+{
+  "title": "Comprehension toolbox",
+  "domain": "core",
+  "objective": "list/dict/set comprehensions incl. nested and conditional",
+  "difficulty": 1,
+  "est_min": 12,
+  "deps": [],
+  "tags": []
+}

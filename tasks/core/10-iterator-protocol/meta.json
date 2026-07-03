@@ -1,0 +1,9 @@
+{
+  "title": "Countdown, by the protocol",
+  "domain": "core",
+  "objective": "iterators: the protocol itself (`__iter__`/`__next__`, `StopIteration`)",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

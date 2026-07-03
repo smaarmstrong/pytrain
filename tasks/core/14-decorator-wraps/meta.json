@@ -1,0 +1,9 @@
+{
+  "title": "A well-behaved @count_calls",
+  "domain": "core",
+  "objective": "decorators: plain function decorator preserving metadata (`functools.wraps`)",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

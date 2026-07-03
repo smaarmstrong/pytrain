@@ -1,0 +1,9 @@
+{
+  "title": "Shelf: a custom container",
+  "domain": "core",
+  "objective": "dunder methods: container protocol (`__len__`, `__getitem__`, `__contains__`, `__iter__`)",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

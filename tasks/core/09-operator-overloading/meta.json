@@ -1,0 +1,9 @@
+{
+  "title": "Duration arithmetic",
+  "domain": "core",
+  "objective": "dunder methods: operator overloading (`__add__`, `__lt__`, reflected ops)",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": [],
+  "tags": []
+}

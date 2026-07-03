@@ -1,0 +1,9 @@
+{
+  "title": "Eager list, lazy stream",
+  "domain": "core",
+  "objective": "generator expressions vs list comprehensions (laziness observable)",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

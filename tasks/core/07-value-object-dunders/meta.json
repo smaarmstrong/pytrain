@@ -1,0 +1,9 @@
+{
+  "title": "Card as a value object",
+  "domain": "core",
+  "objective": "dunder methods: `__repr__`/`__str__`/`__eq__`/`__hash__`",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

@@ -1,0 +1,9 @@
+{
+  "title": "retry(times=...): a decorator factory",
+  "domain": "core",
+  "objective": "decorators with arguments (decorator factory)",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": [],
+  "tags": []
+}

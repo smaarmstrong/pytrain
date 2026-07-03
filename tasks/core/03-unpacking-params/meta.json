@@ -1,0 +1,9 @@
+{
+  "title": "Stars and slashes",
+  "domain": "core",
+  "objective": "unpacking: `*`/`**`, starred assignment, keyword-only and positional-only params",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": []
+}

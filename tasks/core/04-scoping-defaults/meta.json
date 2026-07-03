@@ -1,0 +1,9 @@
+{
+  "title": "Fresh lists and counters",
+  "domain": "core",
+  "objective": "scoping: LEGB, mutable default argument pitfall",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": []
+}

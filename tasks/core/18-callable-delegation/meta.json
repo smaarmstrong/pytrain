@@ -1,0 +1,9 @@
+{
+  "title": "Callables and a logging proxy",
+  "domain": "core",
+  "objective": "callable objects (`__call__`) and `__getattr__` delegation",
+  "difficulty": 4,
+  "est_min": 25,
+  "deps": [],
+  "tags": ["advanced"]
+}

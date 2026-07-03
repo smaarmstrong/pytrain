@@ -1,0 +1,9 @@
+{
+  "title": "add_repr and singleton",
+  "domain": "core",
+  "objective": "class decorators",
+  "difficulty": 4,
+  "est_min": 25,
+  "deps": [],
+  "tags": ["advanced"]
+}

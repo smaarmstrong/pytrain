@@ -1,0 +1,9 @@
+{
+  "title": "Delegation with yield from",
+  "domain": "core",
+  "objective": "`yield from` and generator delegation",
+  "difficulty": 4,
+  "est_min": 30,
+  "deps": [],
+  "tags": ["advanced"]
+}
