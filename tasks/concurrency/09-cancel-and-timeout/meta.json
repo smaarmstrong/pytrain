@@ -1,0 +1,10 @@
+{
+  "title": "Pull the plug",
+  "domain": "concurrency",
+  "objective": "asyncio: create_task, cancellation, timeouts (wait_for / asyncio.timeout)",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": [],
+  "tags": [],
+  "timeout": 180
+}

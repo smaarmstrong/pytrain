@@ -1,0 +1,10 @@
+{
+  "title": "Futures three ways",
+  "domain": "concurrency",
+  "objective": "concurrent.futures: ThreadPoolExecutor map/submit/as_completed",
+  "difficulty": 2,
+  "est_min": 25,
+  "deps": [],
+  "tags": [],
+  "timeout": 180
+}

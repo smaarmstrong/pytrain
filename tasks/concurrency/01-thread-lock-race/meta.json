@@ -1,0 +1,10 @@
+{
+  "title": "Guard the counter",
+  "domain": "concurrency",
+  "objective": "threading: Thread + join, Lock protecting shared state (race made visible)",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": [],
+  "tags": [],
+  "timeout": 180
+}

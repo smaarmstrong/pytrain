@@ -1,0 +1,10 @@
+{
+  "title": "Async work crew",
+  "domain": "concurrency",
+  "objective": "asyncio: producer/consumer with asyncio.Queue",
+  "difficulty": 3,
+  "est_min": 30,
+  "deps": [],
+  "tags": [],
+  "timeout": 180
+}

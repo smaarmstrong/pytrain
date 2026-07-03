@@ -1,0 +1,10 @@
+{
+  "title": "Feel the GIL",
+  "domain": "concurrency",
+  "objective": "GIL in practice: measure thread vs process speedup on CPU-bound task",
+  "difficulty": 4,
+  "est_min": 30,
+  "deps": [],
+  "tags": ["advanced"],
+  "timeout": 240
+}
