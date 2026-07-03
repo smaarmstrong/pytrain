@@ -1,0 +1,10 @@
+{
+  "title": "Roman numerals, table-driven",
+  "domain": "testing",
+  "objective": "parametrize: table-driven tests incl. ids and marks",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": [],
+  "timeout": 240
+}

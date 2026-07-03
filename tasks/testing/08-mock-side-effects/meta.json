@@ -1,0 +1,10 @@
+{
+  "title": "side_effect, call counts, autospec: retry logic",
+  "domain": "testing",
+  "objective": "mocking: side_effect, call assertions, spec autospec",
+  "difficulty": 4,
+  "est_min": 25,
+  "deps": [],
+  "tags": ["advanced"],
+  "timeout": 240
+}

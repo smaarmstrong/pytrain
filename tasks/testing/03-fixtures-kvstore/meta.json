@@ -1,0 +1,10 @@
+{
+  "title": "Fixtures with teardown: the key-value store",
+  "domain": "testing",
+  "objective": "fixtures: setup/teardown, fixture composition, yield fixtures",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": [],
+  "timeout": 240
+}

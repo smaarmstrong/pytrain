@@ -1,0 +1,10 @@
+{
+  "title": "Mock the mailer",
+  "domain": "testing",
+  "objective": "mocking: unittest.mock.Mock, patch as decorator/context manager",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": [],
+  "timeout": 240
+}

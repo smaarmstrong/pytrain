@@ -1,0 +1,10 @@
+{
+  "title": "Lint until clean: ruff without behaviour change",
+  "domain": "testing",
+  "objective": "ruff: fix a module until `ruff check` is clean without changing behaviour",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": ["ruff"],
+  "tags": [],
+  "timeout": 180
+}

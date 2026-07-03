@@ -1,0 +1,10 @@
+{
+  "title": "Test slugify against its spec",
+  "domain": "testing",
+  "objective": "pytest basics: write tests for a spec (must fail buggy impl, pass good one)",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": [],
+  "timeout": 240
+}

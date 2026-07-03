@@ -1,0 +1,10 @@
+{
+  "title": "Raises, warns, and match=",
+  "domain": "testing",
+  "objective": "exceptions & warnings: pytest.raises, pytest.warns, match=",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": [],
+  "timeout": 240
+}

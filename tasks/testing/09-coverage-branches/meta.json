@@ -1,0 +1,10 @@
+{
+  "title": "Kill every mutant: branch coverage",
+  "domain": "testing",
+  "objective": "coverage thinking: write tests reaching listed branches of a gnarly function",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": [],
+  "tags": [],
+  "timeout": 240
+}

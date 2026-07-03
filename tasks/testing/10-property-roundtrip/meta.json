@@ -1,0 +1,10 @@
+{
+  "title": "Seeded property test: RLE round-trip",
+  "domain": "testing",
+  "objective": "property-style testing: write a randomized (seeded) invariant test",
+  "difficulty": 4,
+  "est_min": 25,
+  "deps": [],
+  "tags": ["advanced"],
+  "timeout": 240
+}
