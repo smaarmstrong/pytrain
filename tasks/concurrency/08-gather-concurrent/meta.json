@@ -1,0 +1,10 @@
+{
+  "title": "Fan out with gather",
+  "domain": "concurrency",
+  "objective": "asyncio: gather with concurrency observable (total time < sum of sleeps)",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": [],
+  "timeout": 180
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Work crew on a queue",
+  "domain": "concurrency",
+  "objective": "threading: producer/consumer with queue.Queue",
+  "difficulty": 2,
+  "est_min": 25,
+  "deps": [],
+  "tags": [],
+  "timeout": 180
+}

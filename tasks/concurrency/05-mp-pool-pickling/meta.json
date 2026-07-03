@@ -1,0 +1,10 @@
+{
+  "title": "Pools and pickles",
+  "domain": "concurrency",
+  "objective": "multiprocessing: Pool, passing data, why pickling matters",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": [],
+  "tags": ["advanced"],
+  "timeout": 180
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Async gatekeepers",
+  "domain": "concurrency",
+  "objective": "asyncio: async context managers, locks, semaphores",
+  "difficulty": 3,
+  "est_min": 30,
+  "deps": [],
+  "tags": [],
+  "timeout": 180
+}

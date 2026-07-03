@@ -1,0 +1,10 @@
+{
+  "title": "Streams, asynchronously",
+  "domain": "concurrency",
+  "objective": "asyncio: async iterators / async generators",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": [],
+  "tags": [],
+  "timeout": 180
+}

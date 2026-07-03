@@ -1,0 +1,10 @@
+{
+  "title": "Shipping work to other processes",
+  "domain": "concurrency",
+  "objective": "concurrent.futures: ProcessPoolExecutor for CPU-bound work",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": [],
+  "tags": [],
+  "timeout": 180
+}

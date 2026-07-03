@@ -1,0 +1,10 @@
+{
+  "title": "First coroutines",
+  "domain": "concurrency",
+  "objective": "asyncio: coroutines, await, asyncio.run",
+  "difficulty": 1,
+  "est_min": 15,
+  "deps": [],
+  "tags": [],
+  "timeout": 180
+}

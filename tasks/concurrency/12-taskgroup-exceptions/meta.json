@@ -1,0 +1,11 @@
+{
+  "title": "All or nothing with TaskGroup",
+  "domain": "concurrency",
+  "objective": "asyncio: TaskGroup and ExceptionGroup handling (3.11)",
+  "difficulty": 4,
+  "est_min": 30,
+  "deps": [],
+  "tags": [],
+  "python": "3.11",
+  "timeout": 180
+}
