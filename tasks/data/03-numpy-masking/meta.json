@@ -1,0 +1,9 @@
+{
+  "title": "NumPy: axes and masks",
+  "domain": "data",
+  "objective": "numpy: aggregation, axis semantics, boolean masking",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": ["numpy"],
+  "tags": []
+}

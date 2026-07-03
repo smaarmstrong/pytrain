@@ -1,0 +1,10 @@
+{
+  "title": "sklearn: scale-then-classify pipeline",
+  "domain": "data",
+  "objective": "sklearn: train/test split + a pipeline (scaler + model), score threshold on a seeded synthetic set",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["scikit-learn"],
+  "tags": [],
+  "timeout": 240
+}

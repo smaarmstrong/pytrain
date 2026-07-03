@@ -1,0 +1,10 @@
+{
+  "title": "polars: lazy frames",
+  "domain": "data",
+  "objective": "polars: lazy frames and query optimisation observable",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["polars"],
+  "tags": ["advanced"],
+  "timeout": 180
+}

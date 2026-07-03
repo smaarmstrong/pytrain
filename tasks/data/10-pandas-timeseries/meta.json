@@ -1,0 +1,10 @@
+{
+  "title": "pandas: resample & rolling",
+  "domain": "data",
+  "objective": "pandas: time series (resample, rolling)",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["pandas"],
+  "tags": ["advanced"],
+  "timeout": 180
+}

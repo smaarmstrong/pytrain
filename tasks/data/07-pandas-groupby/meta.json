@@ -1,0 +1,10 @@
+{
+  "title": "pandas: groupby and named aggregations",
+  "domain": "data",
+  "objective": "pandas: groupby-aggregate incl. named aggregations",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": ["pandas"],
+  "tags": [],
+  "timeout": 180
+}
