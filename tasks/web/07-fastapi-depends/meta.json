@@ -1,0 +1,9 @@
+{
+  "title": "FastAPI: dependency injection",
+  "domain": "web",
+  "objective": "FastAPI: dependency injection (Depends), reusable deps",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["fastapi", "httpx"],
+  "tags": []
+}

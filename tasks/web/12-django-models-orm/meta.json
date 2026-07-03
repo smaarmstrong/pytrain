@@ -1,0 +1,9 @@
+{
+  "title": "Django: models and ORM queries",
+  "domain": "web",
+  "objective": "Django: models + ORM queries (tested via in-memory SQLite)",
+  "difficulty": 3,
+  "est_min": 30,
+  "deps": ["django"],
+  "tags": []
+}

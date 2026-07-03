@@ -1,0 +1,9 @@
+{
+  "title": "Auth: token check as a reusable dependency",
+  "domain": "web",
+  "objective": "auth pattern: token check via dependency/middleware in any framework",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["fastapi", "httpx"],
+  "tags": []
+}

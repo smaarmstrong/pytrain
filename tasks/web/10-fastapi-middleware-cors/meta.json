@@ -1,0 +1,9 @@
+{
+  "title": "FastAPI: middleware, CORS and headers",
+  "domain": "web",
+  "objective": "FastAPI: middleware / CORS / headers",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["fastapi", "httpx"],
+  "tags": ["advanced"]
+}

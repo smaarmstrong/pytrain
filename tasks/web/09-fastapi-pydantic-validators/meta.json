@@ -1,0 +1,9 @@
+{
+  "title": "FastAPI: pydantic validators and nested models",
+  "domain": "web",
+  "objective": "FastAPI: pydantic v2 validators, field constraints, nested models",
+  "difficulty": 3,
+  "est_min": 30,
+  "deps": ["fastapi", "httpx"],
+  "tags": []
+}

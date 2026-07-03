@@ -1,0 +1,9 @@
+{
+  "title": "Flask: blueprint + app factory",
+  "domain": "web",
+  "objective": "Flask: blueprints and app factory",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": ["flask"],
+  "tags": []
+}

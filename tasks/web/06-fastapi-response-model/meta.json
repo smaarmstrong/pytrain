@@ -1,0 +1,9 @@
+{
+  "title": "FastAPI: shaped responses and status codes",
+  "domain": "web",
+  "objective": "FastAPI: response_model, status codes, HTTPException",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": ["fastapi", "httpx"],
+  "tags": []
+}

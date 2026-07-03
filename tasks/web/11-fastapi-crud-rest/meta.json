@@ -1,0 +1,9 @@
+{
+  "title": "FastAPI: a full CRUD API",
+  "domain": "web",
+  "objective": "FastAPI: a small CRUD API with in-memory store (full REST semantics)",
+  "difficulty": 3,
+  "est_min": 35,
+  "deps": ["fastapi", "httpx"],
+  "tags": []
+}
