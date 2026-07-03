@@ -1,0 +1,9 @@
+{
+  "title": "O(n) or bust",
+  "domain": "dsa",
+  "objective": "big-O in practice: an O(n) requirement graded with a time budget on large N",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": [],
+  "tags": []
+}

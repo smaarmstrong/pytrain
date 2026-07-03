@@ -1,0 +1,9 @@
+{
+  "title": "Recursion classics: permutations, subsets, flatten",
+  "domain": "dsa",
+  "objective": "recursion: classic problems (permutations, subsets, flatten nested)",
+  "difficulty": 2,
+  "est_min": 25,
+  "deps": [],
+  "tags": []
+}

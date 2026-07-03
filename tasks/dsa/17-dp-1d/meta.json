@@ -1,0 +1,9 @@
+{
+  "title": "1-D dynamic programming: stairs & robbers",
+  "domain": "dsa",
+  "objective": "dynamic programming: 1-D (fib/climb stairs/house robber pattern)",
+  "difficulty": 3,
+  "est_min": 30,
+  "deps": [],
+  "tags": []
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Binary tree: build & four traversals",
+  "domain": "dsa",
+  "objective": "binary tree: build, traversals (DFS pre/in/post, BFS by level)",
+  "difficulty": 3,
+  "est_min": 30,
+  "deps": [],
+  "tags": []
+}

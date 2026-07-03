@@ -1,0 +1,9 @@
+{
+  "title": "Merge sort, stably",
+  "domain": "dsa",
+  "objective": "sorting: implement merge sort; stability observable",
+  "difficulty": 2,
+  "est_min": 25,
+  "deps": [],
+  "tags": []
+}

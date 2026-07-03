@@ -1,0 +1,9 @@
+{
+  "title": "Hash map workhorses",
+  "domain": "dsa",
+  "objective": "hash maps: frequency counting, two-sum-style lookups, anagram grouping",
+  "difficulty": 2,
+  "est_min": 25,
+  "deps": [],
+  "tags": []
+}

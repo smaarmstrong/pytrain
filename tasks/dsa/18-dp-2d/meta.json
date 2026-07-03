@@ -1,0 +1,9 @@
+{
+  "title": "2-D dynamic programming: grids, edits, subsequences",
+  "domain": "dsa",
+  "objective": "dynamic programming: 2-D (grid paths, edit distance or LCS)",
+  "difficulty": 5,
+  "est_min": 45,
+  "deps": [],
+  "tags": ["advanced"]
+}

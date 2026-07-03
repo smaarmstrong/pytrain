@@ -1,0 +1,9 @@
+{
+  "title": "Binary search tree: insert, validate, in-order",
+  "domain": "dsa",
+  "objective": "binary search tree: insert/validate/in-order",
+  "difficulty": 3,
+  "est_min": 30,
+  "deps": [],
+  "tags": ["advanced"]
+}

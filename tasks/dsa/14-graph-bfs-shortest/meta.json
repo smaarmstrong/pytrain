@@ -1,0 +1,9 @@
+{
+  "title": "Graphs: BFS shortest path",
+  "domain": "dsa",
+  "objective": "graphs: adjacency list, BFS shortest path (unweighted)",
+  "difficulty": 3,
+  "est_min": 30,
+  "deps": [],
+  "tags": []
+}
