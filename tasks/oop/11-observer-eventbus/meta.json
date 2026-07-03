@@ -1,0 +1,9 @@
+{
+  "title": "EventBus: observer / pub-sub",
+  "domain": "oop",
+  "objective": "pattern: observer / pub-sub",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Inventory by composition",
+  "domain": "oop",
+  "objective": "composition over inheritance (delegation exercise)",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": []
+}

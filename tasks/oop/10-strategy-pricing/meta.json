@@ -1,0 +1,9 @@
+{
+  "title": "Checkout with pluggable discount strategies",
+  "domain": "oop",
+  "objective": "pattern: strategy (swap behaviour via injected callables/objects)",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": []
+}

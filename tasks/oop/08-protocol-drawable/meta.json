@@ -1,0 +1,9 @@
+{
+  "title": "Drawable: structural typing at runtime",
+  "domain": "oop",
+  "objective": "protocols: structural typing with typing.Protocol (runtime_checkable)",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

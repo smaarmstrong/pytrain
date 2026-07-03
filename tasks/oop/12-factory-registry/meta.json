@@ -1,0 +1,9 @@
+{
+  "title": "Plugin factory with a registry",
+  "domain": "oop",
+  "objective": "pattern: factory + registry (plugin lookup by name)",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}
