@@ -1,0 +1,9 @@
+{
+  "title": "Bounded: a validated-attribute descriptor",
+  "domain": "oop",
+  "objective": "descriptors: a validated-attribute descriptor",
+  "difficulty": 5,
+  "est_min": 30,
+  "deps": [],
+  "tags": ["advanced"]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Adapter: taming a legacy sensor driver",
+  "domain": "oop",
+  "objective": "pattern: adapter or facade over an awkward interface",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

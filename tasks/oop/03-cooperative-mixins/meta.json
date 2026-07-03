@@ -1,0 +1,9 @@
+{
+  "title": "Cooperative mixins and the MRO",
+  "domain": "oop",
+  "objective": "inheritance & super() incl. cooperative multiple inheritance / MRO",
+  "difficulty": 4,
+  "est_min": 25,
+  "deps": [],
+  "tags": []
+}

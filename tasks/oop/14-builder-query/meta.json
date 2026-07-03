@@ -1,0 +1,9 @@
+{
+  "title": "A fluent query builder",
+  "domain": "oop",
+  "objective": "pattern: builder or fluent interface",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": ["advanced"]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Temperature: alternative constructors",
+  "domain": "oop",
+  "objective": "classmethod / staticmethod (alternative constructors)",
+  "difficulty": 1,
+  "est_min": 10,
+  "deps": [],
+  "tags": []
+}

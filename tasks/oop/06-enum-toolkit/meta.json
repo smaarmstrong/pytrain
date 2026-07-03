@@ -1,0 +1,10 @@
+{
+  "title": "An enum toolkit",
+  "domain": "oop",
+  "objective": "enum: Enum, auto, StrEnum/IntEnum, Flag",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": ["advanced"],
+  "python": "3.11"
+}

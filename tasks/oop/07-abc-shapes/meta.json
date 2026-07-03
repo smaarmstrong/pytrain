@@ -1,0 +1,9 @@
+{
+  "title": "Shapes behind an ABC",
+  "domain": "oop",
+  "objective": "abstract base classes: abc.ABC, @abstractmethod",
+  "difficulty": 2,
+  "est_min": 15,
+  "deps": [],
+  "tags": []
+}

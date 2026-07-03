@@ -1,0 +1,9 @@
+{
+  "title": "Vec2 on a diet: __slots__",
+  "domain": "oop",
+  "objective": "`__slots__` and object size/attribute control",
+  "difficulty": 2,
+  "est_min": 10,
+  "deps": [],
+  "tags": ["advanced"]
+}
