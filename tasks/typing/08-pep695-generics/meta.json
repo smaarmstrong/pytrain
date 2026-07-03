@@ -1,0 +1,10 @@
+{
+  "title": "PEP 695 generics",
+  "domain": "typing",
+  "objective": "PEP 695 `def f[T](...)` / `class C[T]` syntax",
+  "difficulty": 3,
+  "est_min": 15,
+  "deps": [],
+  "tags": ["advanced"],
+  "python": "3.12"
+}

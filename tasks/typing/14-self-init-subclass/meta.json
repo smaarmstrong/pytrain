@@ -1,0 +1,9 @@
+{
+  "title": "Self-returning builders and __init_subclass__",
+  "domain": "typing",
+  "objective": "Self type, __init_subclass__ typing niceties",
+  "difficulty": 4,
+  "est_min": 20,
+  "deps": [],
+  "tags": ["advanced"]
+}

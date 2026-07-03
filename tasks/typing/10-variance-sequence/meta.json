@@ -1,0 +1,9 @@
+{
+  "title": "Variance and Sequence-friendly APIs",
+  "domain": "typing",
+  "objective": "variance: covariant containers, Sequence vs list in APIs",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": [],
+  "tags": []
+}

@@ -1,0 +1,10 @@
+{
+  "title": "A generic Stack[T]",
+  "domain": "typing",
+  "objective": "generics: a generic container class (Stack[T]) (mypy-clean)",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": ["mypy"],
+  "tags": [],
+  "timeout": 180
+}

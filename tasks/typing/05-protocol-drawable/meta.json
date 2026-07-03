@@ -1,0 +1,10 @@
+{
+  "title": "Structural typing with Protocol",
+  "domain": "typing",
+  "objective": "Protocol: define + implement structurally (mypy-clean)",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": ["mypy"],
+  "tags": [],
+  "timeout": 180
+}

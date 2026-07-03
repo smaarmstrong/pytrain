@@ -1,0 +1,9 @@
+{
+  "title": "Callable types and a ParamSpec retry decorator",
+  "domain": "typing",
+  "objective": "Callable types, ParamSpec for decorators",
+  "difficulty": 4,
+  "est_min": 25,
+  "deps": [],
+  "tags": ["advanced"]
+}

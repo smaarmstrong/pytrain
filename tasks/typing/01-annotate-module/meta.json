@@ -1,0 +1,10 @@
+{
+  "title": "Annotate the config helpers",
+  "domain": "typing",
+  "objective": "annotate a real module: params, returns, Optional, unions (mypy-clean)",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": ["mypy"],
+  "tags": [],
+  "timeout": 180
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Overloading a polymorphic function",
+  "domain": "typing",
+  "objective": "overload: @typing.overload for a polymorphic function",
+  "difficulty": 3,
+  "est_min": 15,
+  "deps": [],
+  "tags": ["advanced"]
+}
