@@ -1,0 +1,10 @@
+{
+  "title": "Project: sales data pipeline",
+  "domain": "projects",
+  "objective": "data pipeline: CSV -> pandas clean/transform -> SQLite + summary output",
+  "difficulty": 4,
+  "est_min": 60,
+  "deps": ["pandas"],
+  "tags": [],
+  "timeout": 240
+}

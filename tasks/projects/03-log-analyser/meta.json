@@ -1,0 +1,10 @@
+{
+  "title": "Project: access-log analyser",
+  "domain": "projects",
+  "objective": "log analyser: parse real-ish logs, stats with itertools/collections, CLI output",
+  "difficulty": 3,
+  "est_min": 45,
+  "deps": [],
+  "tags": [],
+  "timeout": 180
+}

@@ -1,0 +1,5 @@
+# TODO: make this an installable package (see prompt.md):
+#   [build-system]  — setuptools backend
+#   [project]       — name "wordstats", version "0.1.0"
+#   [project.scripts] — console script `wordstats` -> your cli main
+#   [tool.setuptools.packages.find] — where = ["src"]

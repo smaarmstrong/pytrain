@@ -1,0 +1,10 @@
+{
+  "title": "Project: Flask guestbook",
+  "domain": "projects",
+  "objective": "mini web app: Flask app factory + blueprint + forms/JSON + tests",
+  "difficulty": 3,
+  "est_min": 50,
+  "deps": ["flask"],
+  "tags": [],
+  "timeout": 240
+}

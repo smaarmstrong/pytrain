@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wordstats"
+version = "0.1.0"
+description = "Tiny text-statistics library with a CLI"
+requires-python = ">=3.10"
+
+[project.scripts]
+wordstats = "wordstats.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
