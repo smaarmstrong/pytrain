@@ -1,0 +1,10 @@
+{
+  "title": "matplotlib: a figure to spec",
+  "domain": "data",
+  "objective": "matplotlib: build a figure to spec — assert axes, labels, series data from the Figure object",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": ["matplotlib"],
+  "tags": [],
+  "timeout": 180
+}

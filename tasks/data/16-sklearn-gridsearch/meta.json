@@ -1,0 +1,10 @@
+{
+  "title": "sklearn: CV & a tiny grid search",
+  "domain": "data",
+  "objective": "sklearn: cross-validation + GridSearchCV on a tiny grid",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["scikit-learn"],
+  "tags": ["advanced"],
+  "timeout": 240
+}

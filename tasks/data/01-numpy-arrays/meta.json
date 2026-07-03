@@ -1,0 +1,9 @@
+{
+  "title": "NumPy: build, reshape, slice",
+  "domain": "data",
+  "objective": "numpy: array creation, dtypes, reshaping, slicing/fancy indexing",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": ["numpy"],
+  "tags": []
+}

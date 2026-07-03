@@ -1,0 +1,10 @@
+{
+  "title": "SQLAlchemy ORM: models & relationships",
+  "domain": "data",
+  "objective": "SQLAlchemy: ORM — models, relationships, session queries",
+  "difficulty": 3,
+  "est_min": 30,
+  "deps": ["sqlalchemy"],
+  "tags": [],
+  "timeout": 180
+}

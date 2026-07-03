@@ -1,0 +1,10 @@
+{
+  "title": "polars: expressions",
+  "domain": "data",
+  "objective": "polars: the same core ops in polars expressions (select/filter/group_by/agg)",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": ["polars"],
+  "tags": [],
+  "timeout": 180
+}

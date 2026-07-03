@@ -1,0 +1,10 @@
+{
+  "title": "pandas: frames, dtypes, loc/iloc",
+  "domain": "data",
+  "objective": "pandas: construct/inspect DataFrames, dtypes, selection (loc/iloc)",
+  "difficulty": 1,
+  "est_min": 15,
+  "deps": ["pandas"],
+  "tags": [],
+  "timeout": 180
+}

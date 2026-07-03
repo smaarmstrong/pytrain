@@ -1,0 +1,10 @@
+{
+  "title": "matplotlib: two-panel dashboard",
+  "domain": "data",
+  "objective": "matplotlib: multi-panel subplots / twin axes",
+  "difficulty": 3,
+  "est_min": 25,
+  "deps": ["matplotlib"],
+  "tags": ["advanced"],
+  "timeout": 180
+}

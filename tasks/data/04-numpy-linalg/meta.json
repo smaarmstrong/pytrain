@@ -1,0 +1,9 @@
+{
+  "title": "NumPy: solve and norms",
+  "domain": "data",
+  "objective": "numpy: linalg basics (solve, norms)",
+  "difficulty": 3,
+  "est_min": 20,
+  "deps": ["numpy"],
+  "tags": ["advanced"]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "NumPy: no loops allowed",
+  "domain": "data",
+  "objective": "numpy: broadcasting and vectorised arithmetic (no-loop constraint via timing)",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": ["numpy"],
+  "tags": []
+}

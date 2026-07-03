@@ -1,0 +1,10 @@
+{
+  "title": "pandas: missing data & coercion",
+  "domain": "data",
+  "objective": "pandas: missing data (isna/fillna/dropna) and type coercion",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": ["pandas"],
+  "tags": [],
+  "timeout": 180
+}

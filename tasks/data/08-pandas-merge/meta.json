@@ -1,0 +1,10 @@
+{
+  "title": "pandas: merge, how=, concat",
+  "domain": "data",
+  "objective": "pandas: joins/merges incl. how= semantics, concat",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": ["pandas"],
+  "tags": [],
+  "timeout": 180
+}

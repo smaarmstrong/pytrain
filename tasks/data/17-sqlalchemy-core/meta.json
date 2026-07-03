@@ -1,0 +1,10 @@
+{
+  "title": "SQLAlchemy Core: tables & selects",
+  "domain": "data",
+  "objective": "SQLAlchemy: Core — tables, insert/select on in-memory SQLite",
+  "difficulty": 2,
+  "est_min": 25,
+  "deps": ["sqlalchemy"],
+  "tags": [],
+  "timeout": 180
+}

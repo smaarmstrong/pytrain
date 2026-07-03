@@ -1,0 +1,10 @@
+{
+  "title": "pandas: filter, sort, derive",
+  "domain": "data",
+  "objective": "pandas: filtering, sorting, assign/derived columns",
+  "difficulty": 2,
+  "est_min": 20,
+  "deps": ["pandas"],
+  "tags": [],
+  "timeout": 180
+}
