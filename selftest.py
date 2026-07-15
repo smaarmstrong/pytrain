@@ -16,6 +16,7 @@ Usage:
     ./selftest.py -j 8                  # grading parallelism (default 4)
 """
 import argparse
+import importlib.machinery
 import importlib.util
 import os
 import shutil
