@@ -9,29 +9,53 @@ behaviour-only grading — any correct implementation passes.
 ```
 git clone https://github.com/smaarmstrong/pytrain
 cd pytrain
-./bin/pytrain list                 # all tasks, grouped by domain
+make learn                         # teach the next task, then set up its workspace
+$EDITOR workspace/core/01-fstring-formatting/solution.py
+make check                         # grade the task you're on; then `make learn` again
+```
+
+New to the material? `learn` / `train` decide what's next for you — no need to
+pick task ids. Prefer the raw CLI? Every `make` target forwards to `./bin/pytrain`:
+
+```
+./bin/pytrain train                # auto-pick: a due review, else the next new task
 ./bin/pytrain start dsa/06-heapq-ksmallest
 $EDITOR workspace/dsa/06-heapq-ksmallest/solution.py
 ./bin/pytrain check dsa/06-heapq-ksmallest
 ```
 
 Needs only Python ≥ 3.11. [`uv`](https://docs.astral.sh/uv/) is used for fast
-venv provisioning when present, otherwise `venv` + `pip`.
+venv provisioning when present, otherwise `venv` + `pip`. Bare `make` prints the
+available targets and changes nothing.
 
 ## Commands
 
 | command | what it does |
 |---|---|
+| `pytrain learn [id]` | tutor a task (its `learn.md`, then a solo attempt); no id ⇒ the next new task |
+| `pytrain train` | auto-pick what to do next: a due spaced-repetition review, else the next new task in teaching order |
 | `pytrain list [domain]` | tasks grouped by domain, with your status |
 | `pytrain start <id>` | create `workspace/<id>/` from the starter and show the spec |
-| `pytrain check <id>` | run the task's pytest grader against your solution |
-| `pytrain solution <id>` | reveal a reference solution |
-| `pytrain reset <id>` | restore the starter (your work is backed up to `*.bak`) |
+| `pytrain check [id]` | run the task's pytest grader against your solution |
+| `pytrain solution [id]` | reveal a reference solution |
+| `pytrain reset [id]` | restore the starter (your work is backed up to `*.bak`) |
 | `pytrain status` | XP, daily streak, per-domain progress bars |
 
-`<id>` is `domain/nn-name`, or just the unique trailing name. Progress lives
-in `~/.local/state/pytrain/progress.json`; XP scales with difficulty and the
-streak counts consecutive days with at least one pass.
+`<id>` is `domain/nn-name`, or just the unique trailing name. For
+`check`/`solution`/`reset` you can omit it to act on the task `train`/`start`
+last handed you. Progress lives in `~/.local/state/pytrain/progress.json`; XP
+scales with difficulty and the streak counts consecutive days with at least one
+pass.
+
+## How `train` picks
+
+`train` runs a small spaced-repetition scheduler. New material is served in a
+**fundamentals-first teaching order** (core → stdlib → dsa → oop → typing →
+testing → concurrency → packaging → web → data → projects; within a domain the
+`nn-` prefix runs easy→hard). Each pass schedules the task for review on a
+widening ladder (1, 3, 7, 16, 35, 75 days, then doubling); a later failure is a
+lapse and resets it to relearn soon. Due reviews take priority — but never more
+than two in a row while new material is still waiting, so you keep advancing.
 
 ## Domains
 

@@ -11,6 +11,7 @@ domain from fundamentals to advanced). It contains:
 | `starter/` | no | multi-file scaffold (copied verbatim; use instead of `starter.py`) |
 | `test_grade.py` | yes | pytest grader, run against the learner's workspace |
 | `solution.py` | yes* | reference solution (`solution/` dir for multi-file tasks) |
+| `learn.md` | no | interactive lesson shown by `pytrain learn` (see below) |
 
 ## meta.json
 
@@ -62,6 +63,48 @@ budget — pair a large-N call with small-N correctness asserts).
 
 Never `import solution` directly — pytest would resolve it to the *reference*
 solution sitting next to the grader.
+
+## `learn.md` (optional lesson)
+
+The interactive lesson `pytrain learn` walks a learner through *before* they
+attempt the task — for someone meeting the material for the first time, not just
+being tested on it. Optional: with no `learn.md`, `learn` falls back to showing
+the prompt and offering to set up the workspace.
+
+`learn` reads it as a **tutor script** — plain readable prose plus two markers:
+
+- A line that is exactly `---` is a **pause**: the tutor prints everything above
+  it, then waits ("Enter to continue") before going on. Use it to break the
+  lecture into digestible beats.
+- A fenced ```` ```run ```` block is a **snippet to try**. The tutor shows it and
+  runs it live as a **single Python script** (this interpreter, in a throwaway
+  temp dir) so the learner sees real output. Captured verbatim, so multi-line
+  functions, classes and loops survive. Make snippets `print(...)` what they
+  demonstrate. Keep a block to one logical step; use several blocks for several.
+
+Everything else prints as-is, so write plain text, not heavy Markdown. House
+style is five sections, interleaved with `---` pauses and ```` ```run ```` steps:
+
+```
+THE IDEA        what the thing is and the mental model for it
+WHY IT MATTERS  why a working programmer cares
+HOW TO DO IT    the actual constructs (as ```run steps), explained as you go
+CHECK IT WORKED how the pieces map onto the task's functions
+GOTCHAS         the classic traps
+```
+
+Because the snippets run for real, a lesson may end with the concept fully
+demonstrated — `learn` then offers a clean solo attempt (`start` re-creates the
+workspace from the starter). A good lesson teaches the *skill* so the solution
+becomes obvious; it must never be just a reworded `solution.py`.
+
+**Pedagogy standard.** Assume the learner knows almost nothing. Never make them
+run something they couldn't reconstruct from understanding — no unexplained
+one-liners, regex, or clever tricks dropped as incantations. If a step uses a
+non-obvious construct, teach it inline in plain English first, or use the
+simplest approach. Order material so foundations come before anything that leans
+on them. See `tasks/core/01-fstring-formatting` … `05-exception-hierarchy` for
+worked examples.
 
 ## Quality bars
 
