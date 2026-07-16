@@ -9,6 +9,14 @@ Grading philosophy: graders assert **behaviour**, never style — any correct
 implementation passes. Randomness is seeded, time/network dependence avoided,
 per-task third-party deps declared in `meta.json` `deps`.
 
+## foundations — the ambient toolchain (taught first; lesson-led, tiny graders)
+
+- [ ] running Python: `python3 file.py` vs the REPL; using the REPL to experiment
+- [ ] reading a traceback: file/line, exception type, message; read bottom-up
+- [ ] pytest basics: asserts, running pytest, reading a failure report
+- [ ] debugging: print-debugging with f"{x=}", and breakpoint()/pdb basics (n, s, p, c, q)
+- [ ] venv + pip basics: why venvs, create/activate/install; querying installed packages
+
 ## core — language core (target ≥ 18)
 
 - [ ] list/dict/set comprehensions incl. nested and conditional

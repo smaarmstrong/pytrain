@@ -1,0 +1,9 @@
+{
+  "title": "Virtual environments and pip",
+  "domain": "foundations",
+  "objective": "venv + pip basics: why venvs, create/activate/install; querying installed packages",
+  "difficulty": 1,
+  "est_min": 15,
+  "deps": [],
+  "tags": []
+}

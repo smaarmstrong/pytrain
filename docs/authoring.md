@@ -37,6 +37,13 @@ domain from fundamentals to advanced). It contains:
 - `tags` — `["advanced"]` for bonus material.
 - `python` — optional minimum interpreter (e.g. PEP 695 tasks: `"3.12"`).
 - `timeout` — optional whole-grader wall-clock cap in seconds (default 120).
+- `prereq` — optional list of task ids (usually `foundations/...` lessons)
+  this task quietly leans on. **Soft advisory only**: when the learner hasn't
+  passed a listed task yet, `learn`/`train` print a one-line "new to X? learn
+  it first" nudge; it never gates anything and goes silent once passed. Point
+  only at genuine assumed skills (e.g. the first testing task → the pytest
+  foundations lesson) — don't chain every task to its predecessor; the `nn-`
+  ordering already does that.
 
 ## The grader contract
 
@@ -105,6 +112,14 @@ non-obvious construct, teach it inline in plain English first, or use the
 simplest approach. Order material so foundations come before anything that leans
 on them. See `tasks/core/01-fstring-formatting` … `05-exception-hierarchy` for
 worked examples.
+
+The `foundations` domain is this standard applied to the trainer itself: it
+sorts **first** in the teaching order and its lessons teach the ambient
+toolchain every other task assumes — running files vs the REPL, reading
+tracebacks, how pytest grades you, print/pdb debugging, venv + pip. Its graded
+exercises are deliberately tiny; the `learn.md` is the point. Shell commands
+(running `pytest`, creating a venv) are taught in prose — ```` ```run ````
+blocks execute as **Python**, so never fake a shell command in one.
 
 ## Quality bars
 

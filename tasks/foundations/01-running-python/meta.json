@@ -1,0 +1,9 @@
+{
+  "title": "Run a Python file",
+  "domain": "foundations",
+  "objective": "running Python: `python3 file.py` vs the REPL; using the REPL to experiment",
+  "difficulty": 1,
+  "est_min": 10,
+  "deps": [],
+  "tags": []
+}

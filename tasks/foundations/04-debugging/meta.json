@@ -1,0 +1,10 @@
+{
+  "title": "See inside a running program",
+  "domain": "foundations",
+  "objective": "debugging: print-debugging with f\"{x=}\", and breakpoint()/pdb basics (n, s, p, c, q)",
+  "difficulty": 1,
+  "est_min": 15,
+  "deps": [],
+  "tags": [],
+  "prereq": ["foundations/02-reading-tracebacks"]
+}

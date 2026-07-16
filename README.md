@@ -50,21 +50,28 @@ pass.
 ## How `train` picks
 
 `train` runs a small spaced-repetition scheduler. New material is served in a
-**fundamentals-first teaching order** (core → stdlib → dsa → oop → typing →
-testing → concurrency → packaging → web → data → projects; within a domain the
-`nn-` prefix runs easy→hard). Each pass schedules the task for review on a
+**fundamentals-first teaching order** (foundations → core → stdlib → dsa → oop
+→ typing → testing → concurrency → packaging → web → data → projects; within a
+domain the `nn-` prefix runs easy→hard). Each pass schedules the task for review on a
 widening ladder (1, 3, 7, 16, 35, 75 days, then doubling); a later failure is a
 lapse and resets it to relearn soon. Due reviews take priority — but never more
 than two in a row while new material is still waiting, so you keep advancing.
 
 ## Domains
 
-`core` language fundamentals · `dsa` data structures & algorithms · `stdlib`
-standard library · `oop` OOP & design patterns · `typing` static typing (mypy)
-· `concurrency` threading/multiprocessing/asyncio · `testing` pytest & quality
-tooling · `packaging` pyproject/build/uv · `web` Flask/FastAPI/Django ·
-`data` numpy/pandas/polars/matplotlib/sklearn/SQLAlchemy · `projects`
-multi-file composites.
+`foundations` the trainer's ambient toolchain, taught first — running Python
+files vs the REPL, reading tracebacks, pytest basics, print/pdb debugging,
+venv + pip · `core` language fundamentals · `dsa` data structures & algorithms
+· `stdlib` standard library · `oop` OOP & design patterns · `typing` static
+typing (mypy) · `concurrency` threading/multiprocessing/asyncio · `testing`
+pytest & quality tooling · `packaging` pyproject/build/uv · `web`
+Flask/FastAPI/Django · `data` numpy/pandas/polars/matplotlib/sklearn/SQLAlchemy
+· `projects` multi-file composites.
+
+A few tasks declare a **soft prerequisite** on a foundations lesson: if you
+jump straight to them without it, `learn`/`train` print a one-line pointer to
+the lesson. It's advisory only — nothing is ever locked — and it disappears
+once you've passed the lesson.
 
 The full coverage checklist is [docs/objectives.md](docs/objectives.md).
 

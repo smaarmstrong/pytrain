@@ -5,5 +5,8 @@
   "difficulty": 2,
   "est_min": 20,
   "deps": [],
-  "tags": []
+  "tags": [],
+  "prereq": [
+    "foundations/02-reading-tracebacks"
+  ]
 }

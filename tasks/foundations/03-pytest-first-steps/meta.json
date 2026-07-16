@@ -1,0 +1,10 @@
+{
+  "title": "Assert it: how this trainer grades you",
+  "domain": "foundations",
+  "objective": "pytest basics: asserts, running pytest, reading a failure report",
+  "difficulty": 1,
+  "est_min": 15,
+  "deps": [],
+  "tags": [],
+  "prereq": ["foundations/02-reading-tracebacks"]
+}

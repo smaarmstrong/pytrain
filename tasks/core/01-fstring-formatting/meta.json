@@ -5,5 +5,6 @@
   "difficulty": 1,
   "est_min": 10,
   "deps": [],
-  "tags": []
+  "tags": [],
+  "prereq": ["foundations/01-running-python"]
 }

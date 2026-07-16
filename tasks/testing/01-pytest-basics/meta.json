@@ -6,5 +6,6 @@
   "est_min": 15,
   "deps": [],
   "tags": [],
+  "prereq": ["foundations/03-pytest-first-steps"],
   "timeout": 240
 }
