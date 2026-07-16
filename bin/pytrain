@@ -177,6 +177,8 @@ def task_python_ok(meta):
 # runs easy->hard, so (domain rank, id) is the full teaching order.
 #
 # Rationale (each tier only leans on earlier ones):
+#   foundations  the ambient toolchain every other task silently assumes —
+#                running files, reading tracebacks, pytest output, debugging
 #   core     the language itself — everything below uses it
 #   stdlib   the everyday batteries (collections, itertools, dataclasses, re...)
 #   dsa      algorithmic problem-solving with plain core + stdlib
@@ -188,8 +190,9 @@ def task_python_ok(meta):
 #   web / data   third-party ecosystems (frameworks, numeric/ML stacks)
 #   projects     multi-file capstones that combine everything
 DOMAIN_ORDER = {
-    "core": 0, "stdlib": 1, "dsa": 2, "oop": 3, "typing": 4, "testing": 5,
-    "concurrency": 6, "packaging": 7, "web": 8, "data": 9, "projects": 10,
+    "foundations": 0,
+    "core": 1, "stdlib": 2, "dsa": 3, "oop": 4, "typing": 5, "testing": 6,
+    "concurrency": 7, "packaging": 8, "web": 9, "data": 10, "projects": 11,
 }
 
 def curriculum_key(tid):
@@ -198,6 +201,24 @@ def curriculum_key(tid):
 
 def is_done(st, tid):
     return bool(st["tasks"].get(tid, {}).get("passed"))
+
+def prereq_advice(tasks, st, tid, meta):
+    """SOFT prerequisite pointers. A task's meta.json may list `prereq` — ids
+    of foundations lessons it leans on (e.g. reading tracebacks, pytest). If
+    the learner hasn't passed one yet, print a one-line nudge to learn it
+    first. Advisory only: it NEVER blocks or changes what runs, and it goes
+    silent once the prerequisite is passed."""
+    for pid in meta.get("prereq", []):
+        p_tid = pid if pid in tasks else None
+        if p_tid is None:                   # allow a short id, like resolve()
+            hits = [t for t in tasks if t.endswith("/" + pid)]
+            p_tid = hits[0] if len(hits) == 1 else None
+        if p_tid is None or p_tid == tid or is_done(st, p_tid):
+            continue
+        short = p_tid.split("/", 1)[1]
+        title = tasks[p_tid].get("title", short)
+        print(YEL("heads-up") + DIM('  this task leans on "') + title
+              + DIM('" — new to it? learn it first:  ') + BLD(f"{SELF} learn {short}"))
 
 def selectable(meta):
     """Can this task actually be attempted on this interpreter? (Missing
@@ -477,6 +498,7 @@ def cmd_train(args):
     if kind == "review":
         print(DIM("(your last solution is kept — re-solve from memory, or ")
               + f"{SELF} reset {tid}" + DIM(" for a clean slate)"))
+    prereq_advice(tasks, st, tid, meta)
     launch_task(st, tid, meta)
 
 # ---- learn: an interactive tutor -------------------------------------------
@@ -571,6 +593,7 @@ def cmd_learn(args):
     short = tid.split("/", 1)[1]
     print(BLD(f"\nLESSON — {meta['domain']}: {meta['title']}") + DIM(f"  [{tid}]"))
     print(DIM(f"objective: {meta.get('objective','')}"))
+    prereq_advice(tasks, st, tid, meta)
     print("─" * 60)
 
     lesson = meta["_dir"] / "learn.md"

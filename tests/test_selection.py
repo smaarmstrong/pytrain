@@ -62,6 +62,11 @@ check("schedule_review records reps + a due 3d out (reps=2)",
 # ---- teaching order --------------------------------------------------------
 check("curriculum_key orders core < stdlib < dsa",
       sorted(TASKS, key=r.curriculum_key) == ["core/01-a", "core/02-b", "stdlib/01-c", "dsa/01-d"])
+check("curriculum_key puts foundations before everything",
+      sorted(list(TASKS) + ["foundations/01-f"], key=r.curriculum_key)[0] == "foundations/01-f")
+check("DOMAIN_ORDER ranks foundations first",
+      r.DOMAIN_ORDER["foundations"] == 0 and
+      r.DOMAIN_ORDER["foundations"] < min(v for k, v in r.DOMAIN_ORDER.items() if k != "foundations"))
 
 # ---- next_new: fundamentals first, resumes unfinished ----------------------
 st = blank_state()
@@ -126,6 +131,41 @@ check("parse_lesson splits prose / pause / run / prose",
       kinds == ["prose", "pause", "prose", "run", "prose"])
 check("parse_lesson keeps a run block verbatim as a list of lines",
       beats[3][1] == ["print(1)", "print(2)"])
+
+# ---- soft prereq advisory ---------------------------------------------------
+import contextlib
+import io
+
+P_TASKS = {
+    "foundations/01-f": {"title": "Run a Python file", "domain": "foundations"},
+    "core/01-a":        {"title": "a", "domain": "core",
+                         "prereq": ["foundations/01-f"]},
+}
+
+def advice_output(st, tid, meta, tasks=P_TASKS):
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        r.prereq_advice(tasks, st, tid, meta)
+    return buf.getvalue()
+
+st = blank_state()
+out = advice_output(st, "core/01-a", P_TASKS["core/01-a"])
+check("prereq_advice nudges when the prerequisite is unmet",
+      "learn 01-f" in out and "Run a Python file" in out)
+check("prereq_advice is one line per unmet prereq", out.count("\n") == 1)
+
+st = blank_state(tasks={"foundations/01-f": {"passed": True}})
+check("prereq_advice goes silent once the prerequisite is passed",
+      advice_output(st, "core/01-a", P_TASKS["core/01-a"]) == "")
+
+st = blank_state()
+check("prereq_advice is silent for tasks with no prereq",
+      advice_output(st, "foundations/01-f", P_TASKS["foundations/01-f"]) == "")
+check("prereq_advice resolves a short trailing id",
+      "learn 01-f" in advice_output(st, "core/01-a",
+                                    {"title": "a", "prereq": ["01-f"]}))
+check("prereq_advice ignores unknown prereq ids (never crashes)",
+      advice_output(st, "core/01-a", {"title": "a", "prereq": ["nope/99-x"]}) == "")
 
 print("----")
 if _fails:

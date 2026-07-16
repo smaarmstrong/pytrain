@@ -1,0 +1,9 @@
+{
+  "title": "Read the traceback, fix the bug",
+  "domain": "foundations",
+  "objective": "reading a traceback: file/line, exception type, message; read bottom-up",
+  "difficulty": 1,
+  "est_min": 15,
+  "deps": [],
+  "tags": []
+}

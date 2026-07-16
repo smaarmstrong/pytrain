@@ -4,7 +4,15 @@
   "objective": "pyproject.toml: author metadata/deps for a given module (validates + builds)",
   "difficulty": 2,
   "est_min": 20,
-  "deps": ["build", "packaging", "setuptools", "wheel"],
+  "deps": [
+    "build",
+    "packaging",
+    "setuptools",
+    "wheel"
+  ],
   "tags": [],
+  "prereq": [
+    "foundations/05-venv-pip"
+  ],
   "timeout": 300
 }
