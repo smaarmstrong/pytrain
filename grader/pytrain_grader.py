@@ -5,6 +5,12 @@ learner's files. Loading by explicit path — never by bare `import solution` �
 guarantees the grader exercises the learner's file, not the reference
 solution sitting next to the grader in the task directory.
 """
+# Keep annotations lazy so `str | None` (PEP 604) doesn't get evaluated at
+# import time — otherwise the grader crashes on Python 3.9 (Rocky/RHEL 9's
+# stock python3) with "TypeError: unsupported operand type(s) for |". Must be
+# the first statement after the module docstring.
+from __future__ import annotations
+
 import importlib.util
 import os
 import subprocess
