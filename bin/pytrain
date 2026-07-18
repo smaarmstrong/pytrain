@@ -31,7 +31,8 @@ Your working files live in workspace/<domain>/<nn-name>/ inside this clone
 Tasks that need third-party packages (fastapi, pandas, ...) declare them in
 meta.json; check provisions a cached venv per dependency set (uv if available,
 else venv+pip) so the first check installs once and later checks are instant.
-Runs on any Python >= 3.11 — the runner itself is stdlib only.
+Runs on any Python >= 3.8 — the runner itself is stdlib only (works on the
+stock python3 of Rocky/RHEL 9 and 10; on RHEL 8 install python38 or newer).
 """
 import json
 import hashlib
@@ -49,7 +50,7 @@ WORKSPACE = REPO / "workspace"
 STATE_DIR = Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state")) / "pytrain"
 STATE = STATE_DIR / "progress.json"
 VENVS = STATE_DIR / "venvs"
-MIN_PY = (3, 11)
+MIN_PY = (3, 8)  # true floor per the stdlib features used (shutil.copytree dirs_exist_ok)
 
 # How the learner invoked us, so hints name a command they can actually run.
 # SELF is the runnable path (e.g. ./bin/pytrain) — used for hints that take an
