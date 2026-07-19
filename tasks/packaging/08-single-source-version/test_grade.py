@@ -2,7 +2,10 @@ import re
 import shutil
 import subprocess
 import sys
-import tomllib
+try:
+    import tomllib  # Python 3.11+
+except ModuleNotFoundError:  # Rocky/RHEL 9 (3.9) and 3.10 fall back to tomli
+    import tomli as tomllib
 import zipfile
 
 import pytest

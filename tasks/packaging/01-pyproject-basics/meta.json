@@ -8,6 +8,7 @@
     "build",
     "packaging",
     "setuptools",
+    "tomli",
     "wheel"
   ],
   "tags": [],

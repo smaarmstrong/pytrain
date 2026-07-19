@@ -4,7 +4,7 @@
   "objective": "version handling: __version__ single-sourced",
   "difficulty": 4,
   "est_min": 25,
-  "deps": ["build", "setuptools", "wheel"],
+  "deps": ["build", "setuptools", "tomli", "wheel"],
   "tags": ["advanced"],
   "timeout": 300
 }

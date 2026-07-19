@@ -4,7 +4,7 @@
   "objective": "uv workflows: lock + sync a small project",
   "difficulty": 3,
   "est_min": 20,
-  "deps": [],
+  "deps": ["tomli"],
   "tags": ["advanced"],
   "timeout": 300
 }

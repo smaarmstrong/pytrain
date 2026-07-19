@@ -4,7 +4,7 @@
   "objective": "editable install & extras ([dev] extra with pytest)",
   "difficulty": 3,
   "est_min": 15,
-  "deps": ["build", "packaging", "setuptools", "wheel"],
+  "deps": ["build", "packaging", "setuptools", "tomli", "wheel"],
   "tags": ["advanced"],
   "timeout": 300
 }

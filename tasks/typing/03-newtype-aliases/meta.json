@@ -5,5 +5,6 @@
   "difficulty": 2,
   "est_min": 15,
   "deps": [],
-  "tags": []
+  "tags": [],
+  "python": "3.10"
 }
